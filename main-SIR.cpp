@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
     const unsigned linkSize = networkSize*meanDegree/2;
     const double SI_II = std::stod(argv[3]);
     const double I_R = std::stod(argv[4]);
-    const int randomSeed = std::stoul(argv[5]);
+    const int randomSeed = std::stoi(argv[5]);
     auto start=std::chrono::system_clock::now();
 
     //* Pre-defined variables
