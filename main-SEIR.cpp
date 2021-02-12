@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random>   //random_device()
 
-#include "../library-Git/Epidemics.hpp"
+#include "../library/Epidemics.hpp"
 
 int main(int argc, char *argv[]){
     const unsigned networkSize = std::stoul(argv[1]);
