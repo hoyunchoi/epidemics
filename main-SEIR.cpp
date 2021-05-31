@@ -2,12 +2,13 @@
 #include <iostream>
 #include <random>   //random_device()
 
-#include "../library/Epidemics.hpp"
+#include "SEIR.hpp"
+#include "Networks.hpp"
 
 int main(int argc, char *argv[]){
     const unsigned networkSize = std::stoul(argv[1]);
     const unsigned meanDegree = std::stoul(argv[2]);
-    const unsigned linkSize = networkSize*meanDegree/2;
+    const unsigned long long linkSize = networkSize*meanDegree/2;
     const double SI_EI = std::stod(argv[3]);
     const double E_I = std::stod(argv[4]);
     const double I_R = std::stod(argv[5]);
@@ -23,7 +24,7 @@ int main(int argc, char *argv[]){
     pcg32 randomEngine;
 
     //* Network
-    Network network;
+    Network<unsigned> network;
     double orderParameter;
     const double degreeExponent = 2.5;
 
