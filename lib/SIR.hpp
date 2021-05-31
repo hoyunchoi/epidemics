@@ -19,7 +19,7 @@
 */
 namespace SIR {
 //* pre-defined parameters
-const std::string rootDirectory = "../data/epidemics/SIR/";
+const std::string rootDirectory = "../data/SIR/";
 std::map<std::string, int> stateToInt = {{"S", 0}, {"I", 1}, {"R", 2}};
 unsigned seedSize;
 
@@ -145,7 +145,9 @@ bool equilibrium() {
 
 double run(const int& t_randomEngineSeed, const pcg32& t_randomEngine, const bool t_deletion = true) {
     //* Define write file
-    const std::string writeFileName = rootDirectory + networkType + "/RK4/" + fileName();
+    const std::string directory = rootDirectory + networkType + "/RK4/";
+    CSV::generateDirectory(directory);
+    const std::string writeFileName = directory + fileName();
     std::ofstream writeFile(writeFileName);
 
     //* Initialize model
@@ -347,7 +349,9 @@ double syncRun(const int& t_randomEngineSeed, const pcg32& t_randomEngine, const
     initialize(t_randomEngineSeed, t_randomEngine);
 
     //* Define write file
-    const std::string writeFileName = rootDirectory + networkType + "/GA_sync/" + fileName();
+    const std::string directory = rootDirectory + networkType + "/GA_async/";
+    CSV::generateDirectory(directory);
+    const std::string writeFileName = directory + fileName();
     std::ofstream writeFile(writeFileName);
 
     //* Write the result
@@ -370,7 +374,9 @@ double asyncRun(const int& t_randomEngineSeed, const pcg32& t_randomEngine, cons
     initialize(t_randomEngineSeed, t_randomEngine);
 
     //* Define write file
-    const std::string writeFileName = rootDirectory + networkType + "/GA_async/" + fileName();
+    const std::string directory = rootDirectory + networkType + "/GA_sync/";
+    CSV::generateDirectory(directory);
+    const std::string writeFileName = directory + fileName();
     std::ofstream writeFile(writeFileName);
 
     //* Write the result

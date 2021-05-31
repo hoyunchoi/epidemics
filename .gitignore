@@ -32,5 +32,8 @@
 *.vb
 *.wsf
 *.out
+bin/**
 
 # End of https://www.toptal.com/developers/gitignore/api/executable
+
+data/**

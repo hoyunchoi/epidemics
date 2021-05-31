@@ -19,12 +19,18 @@ function debugBuild {
 }
 
 function build {
-	g++ -std=c++17 -O3 -flto -march=native -I ${common} -I ${libDir} -o ${binDir}/${name} \
-		main-SIR.cpp
+	g++ -std=c++17 -O3 -flto -march=native -I ${common} -I ${libDir}\
+		main-SIR.cpp\
+        -o ${binDir}/${name}
 }
 
-./bin/${name}.out ${networkSize} ${meanDegree} ${SIII} ${IR} ${randomSeed}
-rm bin/${name}.out
+#* Compile the source files
+build
+
+#* Run
+cd ${binDir}
+./${name} ${networkSize} ${meanDegree} ${SIII} ${IR} ${randomSeed}
+rm ${name}
 
 
 
